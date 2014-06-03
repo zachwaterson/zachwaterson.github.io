@@ -1,0 +1,19 @@
+body {
+	background-image: url(images/background.jpg);
+	background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-attachment: fixed;
+    margin-right: 15px;
+	font-family: 'ostrich_sansmedium', Arial, sans-serif;
+    font-size: 100%;
+}
+h1 {
+    font-size: 9em;
+    text-align: center;
+    font-family: 'ostrich_sansblack', Arial, sans-serif;
+}
+h2 {
+    font-size: 4em;
+    text-align: center;
+}
