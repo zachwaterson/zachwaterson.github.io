@@ -11,6 +11,7 @@ body {
 @media all and (min-width: 768px) {
     body {
         font-size: 4em;
+        padding-top: 3%;
 
     }
 }
