@@ -1,14 +1,32 @@
 @import 'bourbon/bourbon';
 @import 'neat/neat';
 
-section.splash {
-  @include outer-container;
-  h1 {
-    @include span-columns(12);
-  }
-  h2 {
-    @include span-columns(6);
-  }
+$font-stack-bold: 'junctionbold', Arial, sans-serif;
+$font-stack-regular: 'junctionregular', Arial, sans-serif;
+$font-stack-light: 'junctionlight', Arial, sans-serif;
+
+body {
+  background-image: url(/images/background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: right top;
+  background-attachment: fixed;
+  margin-right: 15px;
+  font-family: $font-stack-bold;
+  font-size: 100%;
+  color: rgb(38,38,38);
+
 }
+h1 {
+  font-size: 6em;
+  text-align: center;
+  font-family: $font-stack-light;
+}
+h2 {
+  font-size: 3em;
+  text-align: center;
+  font-family: $font-stack-light;
+}
+
 
 

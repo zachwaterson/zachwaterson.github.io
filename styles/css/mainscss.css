@@ -3,25 +3,23 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
-section.splash {
-  max-width: 68em;
-  margin-left: auto;
-  margin-right: auto; }
-  section.splash:after {
-    content: "";
-    display: table;
-    clear: both; }
-  section.splash h1 {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 100%; }
-    section.splash h1:last-child {
-      margin-right: 0; }
-  section.splash h2 {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 48.82117%; }
-    section.splash h2:last-child {
-      margin-right: 0; }
+body {
+  background-image: url(/images/background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: right top;
+  background-attachment: fixed;
+  margin-right: 15px;
+  font-family: "junctionbold", Arial, sans-serif;
+  font-size: 100%;
+  color: #262626; }
+
+h1 {
+  font-size: 6em;
+  text-align: center;
+  font-family: "junctionlight", Arial, sans-serif; }
+
+h2 {
+  font-size: 3em;
+  text-align: center;
+  font-family: "junctionlight", Arial, sans-serif; }
