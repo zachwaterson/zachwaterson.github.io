@@ -1,0 +1,14 @@
+@import 'bourbon/bourbon';
+@import 'neat/neat';
+
+section.splash {
+  @include outer-container;
+  h1 {
+    @include span-columns(12);
+  }
+  h2 {
+    @include span-columns(6);
+  }
+}
+
+

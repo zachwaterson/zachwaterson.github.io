@@ -1,0 +1,27 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+section.splash {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto; }
+  section.splash:after {
+    content: "";
+    display: table;
+    clear: both; }
+  section.splash h1 {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 100%; }
+    section.splash h1:last-child {
+      margin-right: 0; }
+  section.splash h2 {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 48.82117%; }
+    section.splash h2:last-child {
+      margin-right: 0; }
