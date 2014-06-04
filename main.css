@@ -5,7 +5,7 @@ body {
     background-position: right top;
     background-attachment: fixed;
     margin-right: 15px;
-	font-family: 'ostrich_sansblack', Arial, sans-serif;
+	font-family: 'junctionbold', Arial, sans-serif;
     font-size: 100%;
     color: rgb(38,38,38);
 
@@ -13,9 +13,10 @@ body {
 h1 {
     font-size: 9em;
     text-align: center;
-    font-family: 'ostrich_sansblack', Arial, sans-serif;
+    font-family: 'junctionbold', Arial, sans-serif;
 }
 h2 {
     font-size: 4em;
     text-align: center;
+    font-family: 'junctionlight', Arial, sans-serif;;
 }
