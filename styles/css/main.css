@@ -1,23 +1,52 @@
 body {
-	background-image: url(/images/background.jpg);
-	background-size: cover;
+    font-family: 'junctionregular', Arial, sans-serif;
+    font-size: 1em;
+
+}
+
+p {
+    font-family: 'junctionregular', Arial, sans-serif;
+    font-size: 1.5em;
+    color: #000000;
+}
+
+h2 {
+    color: cornflowerblue;
+    font-family: 'junctionbold', Arial, sans-serif;
+}
+
+#splashBackground {
+    background-image: url(/images/background.jpg);
+    background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-	font-family: 'junctionbold', Arial, sans-serif;
-    color: white;
     font-size: 2.7em;
-
+    color: white;
+    background-position: bottom;
 }
+
+.textured {
+    background-color: white;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
 @media all and (min-width: 768px) {
-    body {
-        font-size: 4em;
-        padding-top: 3%;
-
+    #splashBackground {
+        font-size: 3.5em;
+        background-position: top;
     }
-
+    #splashSection {
+        padding-top: 3%;
+    }
+    p {
+        font-size: 2em;
+    }
 }
 @media all and (min-width: 992px) {
-    body {
+    #splashBackground {
+        font-size: 4em;
     }
 }
 @media all and (min-width: 1200px) {
@@ -29,7 +58,10 @@ h1 {
     text-align: center;
     font-family: 'junctionbold', Arial, sans-serif;
     font-size: 2em;
+}
 
+.fullHeight {
+    height: 100%;
 }
 
 .navigation {
