@@ -37,6 +37,7 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="msapplication-TileImage" content="/mstile-144x144.png">
 
+
     <!-- Google Analytics -->
     <script>
 	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -51,49 +52,13 @@
 </head>
 
 <body>
+    <div id="navbar"></div>
     <div id="wrap">
-        <nav class="navbar navbar-custom navbar-fixed-top regular" role="navigation">
-            <div class="container-fluid">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="/">Zach Waterson</a>
-                </div>
-
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="/">About</a></li>
-                        <li><a href="projects.html">Projects</a></li>
-                        <li><a href="documents/Zach_Waterson_Résumé.pdf">Résumé</a></li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Links <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="https://github.com/zachwaterson">Github</a></li>
-                                <li><a href="https://www.linkedin.com/in/zachwaterson">LinkedIn</a></li>
-                                <li class="divider"></li>
-                                <li><a href="https://twitter.com/H2Oson_">Twitter</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="/">Home</a></li>
-                    </ul>
-                </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
-        </nav>
         <div class="content">
             <div class="container-fluid" id="header">
                 <div class="row" id="headerdiv">
                     <div class="col-sm-4">
-                        <a href="/">
-                            <img src="images/headshot.png" class="img-responsive animated slideInLeft" id="headshot">
-                        </a>
+                        <img src="images/headshot.png" class="img-responsive animated slideInLeft" id="headshot">
                     </div>
                     <div class="col-sm-8 titletext animated fadeInRight">
                         <h1>Hi. <b class="regular">Zach Waterson</b> here. I’m a software developer, technophile, and student.</h1>
@@ -107,10 +72,10 @@
                     </div>
                     <div class="col-sm-8">
                         <h2 class="regular">ABOUT</h2>
-                        <p class="light">
+                        <p class="regular">
                             I'm a proud member of the Notre Dame Class of 2016, studying Computer Science with a minor in Philosophy, Politics, and Economics. I am originally from the San Francisco Bay Area, but I chose to attend college in the Midwest so as to experience this "winter" thing that I've heard about.
                         </p>
-                        <p class="light">
+                        <p class="regular">
                             I am extremely passionate about technology, especially the ways in which it enriches the day-to-day lives of others. Growing up just outside the Silicon Valley has infected me with an entrepreneurial spirit, which I brought with me to Notre Dame. I love witnessing a family member be impressed with a feature on his or her phone, and I'm the first to show a friend a new app that I think can enrich his or her life.
                         </p>
                     </div>
@@ -119,9 +84,16 @@
         </div>
         <div id="push"></div>
     </div>
-    <div id="footer">
-        <p class="text-center vertical-center">Last updated June 2014</p>
-    </div>
+    <div id="footer"></div>
+    <!--Including navbar and footer-->
+    <script>
+        $(document).ready(function(){
+            $("#navbar").load("navbar.html", function() {
+                $('#aboutHeader').addClass('active');
+            });
+            $("#footer").load("footer.html");
+        });
+    </script>
 </body>
 
 

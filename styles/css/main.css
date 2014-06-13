@@ -1,5 +1,7 @@
 /*Font Classes*/
 
+/*Font is Raleway, by the League of Moveable Type*/
+
 .extralight {
     font-family: 'ralewayextralight', Arial, sans-serif;
 }
@@ -48,6 +50,9 @@
 dt {
     font-family: 'ralewaymedium';
     margin-top: 10px;
+}
+dd {
+    font-family: 'ralewayregular';
 
 }
 hr {
@@ -63,6 +68,8 @@ body {
 p, dl {
     font-size: 1.5em;
 }
+
+
 
 .bigtext {
     font-size: 5.5em;
