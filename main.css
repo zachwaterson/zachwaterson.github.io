@@ -13,3 +13,7 @@
 #landing-canvas {
 	position: absolute;
 }
+
+h1, a {
+	font-family:'Source Code Pro', Sans Serif;
+}
