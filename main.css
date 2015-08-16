@@ -1,0 +1,15 @@
+#landing {
+	width: 100wv;
+	height: 100vh;
+	display: block;
+	position: relative;
+	padding: 0;
+}
+
+#landing-title {
+	top: 45%;
+}
+
+#landing-canvas {
+	position: absolute;
+}
