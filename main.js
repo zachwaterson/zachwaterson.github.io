@@ -1,12 +1,13 @@
 var circles = []
 
 $(document).ready(function() {	
+	createRandomCircle()
 	redrawCanvas()
 });
 
 $(window).resize(redrawCanvas)
 
-window.setInterval(processCircles, 10)
+window.setInterval(processCircles, 25)
 window.setInterval(createRandomCircle, 2500)
 
 function redrawCanvas() {
@@ -49,7 +50,7 @@ function circle(x, y, radius) {
 function processCircles() {
 	var circlesToKeep = []
 	$.each(circles, function(index, circle) {
-		circle.radius += 1
+		circle.radius += 2
 		if (circle.opacity() > 0) {
 			circlesToKeep.push(circle)
 			console.log(circle)
