@@ -7,7 +7,7 @@ $(document).ready(function() {
 
 $(window).resize(redrawCanvas)
 
-window.setInterval(processCircles, 25)
+window.setInterval(processCircles, 15)
 window.setInterval(createRandomCircle, 2500)
 
 function redrawCanvas() {
