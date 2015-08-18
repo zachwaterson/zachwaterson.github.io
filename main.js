@@ -1,8 +1,17 @@
 var circles = []
 
 $(document).ready(function() {	
-	createRandomCircle()
 	redrawCanvas()
+
+	$('#landing-canvas').click(function(ev) {
+		var mouseX = ev.pageX
+		var mouseY = ev.pageY
+		if (circles.length < 4) {
+			circles.push(new Circle(mouseX, mouseY, 0))
+		}	
+	})
+
+	setTimeout(createRandomCircle, 500)
 });
 
 $(window).resize(redrawCanvas)
@@ -33,7 +42,7 @@ function redrawCanvas() {
 	})
 }
 
-function circle(x, y, radius) {
+function Circle(x, y, radius) {
 	this.x = x
 	this.y = y
 	this.radius = radius
@@ -53,7 +62,6 @@ function processCircles() {
 		circle.radius += 2
 		if (circle.opacity() > 0) {
 			circlesToKeep.push(circle)
-			console.log(circle)
 		}
 	})
 	circles = circlesToKeep
@@ -63,7 +71,7 @@ function processCircles() {
 function createRandomCircle() {
 	var x = Math.random() * $('#landing').width()
 	var y = Math.random() * $(window).height()
-	circles.push(new circle(x, y, 0))
+	circles.push(new Circle(x, y, 0))
 }
 
 function drawLine(context) {
