@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg id="spigot-svg" width="1023px" height="687px" viewBox="0 0 341 229" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" onclick="window.parent.spigotClicked()" style="cursor: pointer;">
+    <!-- Generator: Sketch 3.8.3 (29802) - http://www.bohemiancoding.com/sketch -->
+    <style type="text/css" >
+      <![CDATA[
+
+        @-webkit-keyframes spin {
+
+            0% {
+
+            }
+
+            100% {
+                -webkit-transform: rotate3d(0, 1, 0, -540deg);
+                transform: rotate3d(0, 1, 0, -540deg);
+                -webkit-animation-timing-function: ease-out;
+                animation-timing-function: ease-out;
+            }
+
+        }
+
+        @keyframes spin {
+
+            0% {
+
+            }
+
+            100% {
+                -webkit-transform: rotate3d(0, 1, 0, -540deg);
+                transform: rotate3d(0, 1, 0, -540deg);
+                -webkit-animation-timing-function: ease-out;
+                animation-timing-function: ease-out;
+            }
+
+        }
+
+        .spin {
+            backface-visibility: visible;
+            -webkit-backface-visibility: visible;
+            animation-name: spin;
+            animation-duration: 1s;
+            transform-origin: 50% 50%;
+        }
+
+
+
+        ]]>
+    </style>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g transform="translate(-237.000000, -251.000000)" stroke="#B9B8B8" stroke-width="11">
+            <path d="M425.325094,282.5 L424.5,282.5 C424.5,282.5 394,272 379.5,273 C365,274 353,286.881111 353,301 C353,315.118889 364,332 379.5,331 C401.062175,331 424.5,325 424.5,325 L424.5,365 L466,365 L466,325 C466,325 489,330.000003 511.5,330 C529,329.999998 538,315.374567 538,301 C538,286.625433 528,274 511.5,274 C500,274 466,282.5 466,282.5 L462.674906,282.5 C457.825309,277.854351 451.245989,275 444,275 C436.754011,275 430.174691,277.854351 425.325094,282.5 Z M444,329 C458.911688,329 471,316.911688 471,302 C471,287.088312 458.911688,275 444,275 C429.088312,275 417,287.088312 417,302 C417,316.911688 429.088312,329 444,329 Z" id="spigot-handle"></path>
+             <path d="M243,365 L424.5,365 L466,365 C466,365 472,365.000001 501,365 C572,364.999998 571,429 571,429 L572,474 L522,474 C522,474 522.170797,444.999665 522,429 C521.946625,424.000005 517,415.000005 501,415 C497.727461,414.999999 243,415 243,415 L243,315 L243,462" id="spigot-pipe"></path>
+
+        </g>
+    </g>
+</svg>

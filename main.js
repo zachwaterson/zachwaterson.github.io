@@ -1,91 +1,170 @@
-var circles = []
+$(window).load(function() {
 
-$(document).ready(function() {	
-	redrawCanvas()
+    // Bind window resize to redrawing flow of water
+    $(window).resize(resizeWaterFlow);
+    resizeWaterFlow();
 
-	$('#landing-canvas').click(function(ev) {
-		var mouseX = ev.pageX
-		var mouseY = ev.pageY
-		if (circles.length < 4) {
-			circles.push(new Circle(mouseX, mouseY, 0))
-		}	
-	})
+    // Animate spigot
+    new Vivus('spigot', {duration: 100, type: 'async', pathTimingFunction: Vivus.EASE_OUT, animTimingFunction: Vivus.EASE}, null);
+    setTimeout(spinSpigot, 750); // spin spigot when it's almost finished drawing
+    setTimeout(pulseSun, 750); // Pulse sun when it's finished drawing
 
-	setTimeout(createRandomCircle, 500)
+    window.setInterval(animateWater, 15); // ~60 fps
+
 });
 
-$(window).resize(redrawCanvas)
+// ----------------- Sun functions --------------------
 
-window.setInterval(processCircles, 15)
-window.setInterval(createRandomCircle, 2500)
+function pulseSun() {
+    var rays = $(document.getElementById("sun").contentDocument.getElementById("sun-and-rays")).children("path");
+    rays.each(function(index, ray) {
+        $(ray).attr("class", "pulse"); // add pulse CSS
+        var randomOffset = ((1.5 - Math.random())) // each ray pulses at slightly random
+        $(ray).attr("style", "animation-duration: " + randomOffset + "s");
+    })
 
-function redrawCanvas() {
-	var height = $(window).height()
-	var width = $('#landing').width()
+}
 
-	$('#landing').css('height', height)
 
-	var canvas = document.getElementById('landing-canvas')
-	canvas.width = width
-	canvas.height = height
-	var context = canvas.getContext('2d')
+// ----------------- Water functions ------------------
+
+function spigotClicked() {
+    spinSpigot();
+    toggleWater();
+}
+
+function spinSpigot() {
+    var handle_path = document.getElementById("spigot").contentDocument.getElementById("spigot-handle");
+    $(handle_path).attr("class", "spin");
+
+    var animationDuration = 1000 // in ms, needs to match CSS in SVG file (which is in seconds)
+    // remove class once animation finishes
+    window.setTimeout(function() {$(handle_path).removeAttr("class");}, animationDuration);
+}
+
+function toggleWater() {
+    waterOn = !waterOn;
+    framesSinceHandleFlipped = 0;
+
+}
+
+function resizeWaterFlow() {
+    if ($(window).width() < 768) { // small viewport, same as bootstrap
+        // water flows down through the sun
+        $("#water").height($(document).height() - $("#headline").height() - $("#spigot").height());
+    } else {
+        // water flows down to the end of the viewport
+        $("#water").height($("#viewport").height() - $("#headline").height() - $("#spigot").height());
+    }
+
+    // adjust the lateral density of the waterfall based on width of spigot
+    numberOfColumns = Math.floor($("#water").width() / waterLineWidth);
+}
+
+// constants for animation
+var waterLines = [];
+var waterLineWidth = 10; // in points
+var numberOfColumns = 4; // varies with width of spigot
+var numberOfWaterLineSegments = 24; // How varied the length of the water can be (length will be determined in segments)
+var longestWaterSegment = numberOfWaterLineSegments / 4; // Longest line will be a quarter of the total waterfall length
+var startingVelocity = 20;
+
+var desiredAmountOfWater = 30; // amount for animation to build up to
+var waterFlowFullTimeframe = 25; // constant, tweak as needed
+var framesSinceHandleFlipped = 0; // initial delay
+var waterOn = true;
+
+function waterAtTime(t, maxWater, timeToFull) {
+    // Need to translate function so it maps neatly to a frame t
+    var translationAmount = 6 * (waterOn ? 1 : -0.5); // negative to translate the other way; half so it turns off faster
+    var flowDirection = waterOn ? -1 : 1;
+    // sigmoid so water flow acceleration is S-shaped
+    var exactValue = maxWater/(1+Math.pow(Math.E, ((flowDirection/timeToFull)*t) + translationAmount));
+    return Math.floor(exactValue);
+}
+
+function WaterLine(x, y, column, lengthInSegments, width, velocity) {
+    this.x = x;
+    this.y = y;
+    this.column = column;
+    this.lengthInSegments = lengthInSegments;
+    this.width = width;
+    this.endRadius = this.width
+    this.velocity = velocity;
+    this.color = "#4A90E2";
+    this.lengthInPoints = function() {
+        var lengthInPoints = (document.getElementById("water-canvas").height / numberOfWaterLineSegments) * this.lengthInSegments; // cut waterfall height into length of one "segment" then multiply by length in segments to get point length
+        return lengthInPoints
+    }
+    return this;
+}
+function createNewWaterLine() {
+    // determine which column at random
+    var column = Math.floor(Math.random() * numberOfColumns);
+    var lengthInSegments = Math.floor(Math.random() * longestWaterSegment) + 1; // how much of the waterfall should the line take up, as a fraction of the longest a line can be
+
+    waterLines.push(new WaterLine(0, 0, column, lengthInSegments, waterLineWidth, startingVelocity));
+}
+
+function animateWater() {
+
+    var canvas = document.getElementById("water-canvas");
+    var context = canvas.getContext('2d');
+
+    clearAndSizeCanvasAndContext(canvas, context);
+
+    // add a line if the functions says to do so
+    if (waterLines.length < waterAtTime(framesSinceHandleFlipped, desiredAmountOfWater, waterFlowFullTimeframe)) {
+        createNewWaterLine();
+    }
+
+    advanceWaterLines(canvas, context);
+    drawWaterLines(canvas, context);
+
+    framesSinceHandleFlipped += 1;
+}
+
+function advanceWaterLines(canvas, context) {
+    var waterToKeep = [];
+    $.each(waterLines, function(index, line) {
+        // keep the line if it's still onscreen
+        if (line.y < canvas.height && line.column <= numberOfColumns) {
+            waterToKeep.push(line);
+        }
+        line.y += line.velocity;
+    })
+    waterLines = waterToKeep;
+}
+
+function clearAndSizeCanvasAndContext(canvas, context) {
+    // to support Retina displays
+    canvas.width = $("#water").width() * backingScale();
+    canvas.height = $("#water").height() * backingScale();
 
     context.clearRect(0, 0, canvas.width, canvas.height);
-
-	// draw circles
-	$.each(circles, function(index, circle) {
-		context.beginPath()
-	    context.arc(circle.x, circle.y, circle.radius, 0, 2 * Math.PI, false)
-	    context.fillStyle = circle.color()
-	    context.fill()
-	   	context.closePath()
-	})
 }
 
-function Circle(x, y, radius) {
-	this.x = x
-	this.y = y
-	this.radius = radius
-	this.opacity = function () {
-		var maxRadius = 300.0
-		var opacity = 1 - (this.radius / maxRadius)
-		return opacity < 0 ? 0 : opacity
-	}
-	this.color = function () {
-		return "rgba(0, 0, 0, " + this.opacity() + ")"
-	}
-}
 
-function processCircles() {
-	var circlesToKeep = []
-	$.each(circles, function(index, circle) {
-		circle.radius += 2
-		if (circle.opacity() > 0) {
-			circlesToKeep.push(circle)
-		}
-	})
-	circles = circlesToKeep
-	redrawCanvas()
-}
+function drawWaterLines(canvas, context) {
 
-function createRandomCircle() {
-	var x = Math.random() * $('#landing').width()
-	var y = Math.random() * $(window).height()
-	circles.push(new Circle(x, y, 0))
-}
+    // how far apart in points should the columns be
+    var columnSpacing = canvas.width / (numberOfColumns - 1);
 
-function drawLine(context) {
-	context.moveTo(width * 0.6, height * 0.3)
-	var startLineX = width * 0.7
-	var startLineY = height * 0.25
-	var lineLength = height * 0.5
-	var lineAngle = Math.PI/2.8
-	var endLineX = lineLength * Math.cos(lineAngle) + startLineX
-	var endLineY = lineLength * Math.sin(lineAngle) + startLineY
-
-	context.moveTo(startLineX, startLineY)
-	context.lineTo(endLineX, endLineY)
-	context.stroke()
+    $.each(waterLines, function(index, line) {
+        line.x = columnSpacing * line.column;
+        if (line.column == numberOfColumns - 1) { // last column, have to push it left to make it inclusive
+            line.x -= line.width;
+        } else if (line.column == 0) {
+            line.x += line.width; // first column, have to push it right to make it inclusive
+        }
+        context.strokeStyle = line.color;
+        context.beginPath();
+        context.lineWidth = line.width;
+        context.lineCap="round";
+        context.moveTo(line.x, line.y);
+        context.lineTo(line.x, line.y + line.lengthInPoints());
+        context.stroke();
+    })
 }
 
 function backingScale(context) {

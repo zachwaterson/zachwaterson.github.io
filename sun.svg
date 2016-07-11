@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="469px" height="473px" viewBox="0 0 469 473" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: visible;">
+    <!-- Generator: Sketch 3.8.3 (29802) - http://www.bohemiancoding.com/sketch -->
+    <style type="text/css" >
+      <![CDATA[
+
+        .popIn {
+          -webkit-animation: popIn 1000ms linear both;
+          animation: popIn 1000ms linear both;
+          transform-origin: 50% 50%;
+        }
+
+        @-webkit-keyframes popIn {
+            0% { -webkit-transform: scale3d(0, 0, 0); transform: scale3d(0, 0, 0); }
+              5.61% { -webkit-transform: scale3d(0.597, 0.597, 0.597); transform: scale3d(0.597, 0.597, 0.597); }
+              8.41% { -webkit-transform: scale3d(0.838, 0.838 ,0.838); transform: scale3d(0.838, 0.838, 0.838); }
+              11.11% { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); }
+              14.51% { -webkit-transform: scale3d(0.89, 0.89, 0.89); transform: scale3d(0.89, 0.89, 0.89); }
+              17.92% { -webkit-transform: scale3d(0.861, 0.861, 0.861); transform: scale3d(0.861, 0.861, 0.861); }
+              33.33% { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); }
+              40.14% { -webkit-transform: scale3d(0.985, 0.985, 0.985); transform: scale3d(0.985, 0.985, 0.985); }
+              55.66% { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); }
+              62.36% { -webkit-transform: scale3d(0.998, 0.998, 0.998); transform: scale3d(0.998, 0.998, 0.998); }
+              77.88% { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); }
+              84.68% { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); }
+              100% { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); }
+        }
+
+        @keyframes popIn {
+            0% { -webkit-transform: scale3d(0, 0, 0); transform: scale3d(0, 0, 0); }
+              5.61% { -webkit-transform: scale3d(0.597, 0.597, 0.597); transform: scale3d(0.597, 0.597, 0.597); }
+              8.41% { -webkit-transform: scale3d(0.838, 0.838, 0.838); transform: scale3d(0.838, 0.838, 0.838); }
+              11.11% { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); }
+              14.51% { -webkit-transform: scale3d(0.89, 0.89, 0.89); transform: scale3d(0.89, 0.89, 0.89); }
+              17.92% { -webkit-transform: scale3d(0.861, 0.861, 0.861); transform: scale3d(0.861, 0.861, 0.861); }
+              33.33% { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); }
+              40.14% { -webkit-transform: scale3d(0.985, 0.985, 0.985); transform: scale3d(0.985, 0.985, 0.985); }
+              55.66% { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); }
+              62.36% { -webkit-transform: scale3d(0.998, 0.998 ,0.998); transform: scale3d(0.998, 0.998, 0.998); }
+              77.88% { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); }
+              84.68% { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); }
+              100% { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); }
+        }
+
+        @keyframes draw {
+          to {
+            stroke-dashoffset: 0;
+          }
+        }
+
+        .draw-it {
+          stroke-dasharray: 800px;
+          stroke-dashoffset: 800px;
+          animation-name: draw;
+          animation-duration: 1s;
+          animation-fill-mode: forwards;
+          animation-iteration-count: 1;
+          animation-timing-function: ease-out;
+        }
+
+        .pulse {
+          -webkit-animation: pulse 1000ms ease both;
+          animation: pulse 1000ms ease both;
+          transform-origin: 50% 50%;
+          animation-iteration-count: infinite;
+        }
+
+        @-webkit-keyframes pulse {
+
+        0% { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); }
+        10% { -webkit-transform: scale3d(1.0293, 1.0293, 1.0293); transform: scale3d(1.0293, 1.0293, 1.0293); }
+        20% { -webkit-transform: scale3d(1.0474, 1.0474, 1.0474); transform: scale3d(1.0474, 1.0474, 1.0474); }
+        30% { -webkit-transform: scale3d(1.0477, 1.0477, 1.0477); transform: scale3d(1.0477, 1.0477, 1.0477); }
+        40% { -webkit-transform: scale3d(1.0299, 1.0299, 1.0299); transform: scale3d(1.0299, 1.0299, 1.0299); }
+        50% { -webkit-transform: scale3d(1.0008, 1.0008, 1.0008); transform: scale3d(1.0008, 1.0008, 1.0008); }
+        60% { -webkit-transform: scale3d(0.9714, 0.9714, 0.9714); transform: scale3d(0.9714, 0.9714, 0.9714); }
+        70% { -webkit-transform: scale3d(0.9528, 0.9528, 0.9528); transform: scale3d(0.9528, 0.9528, 0.9528); }
+        80% { -webkit-transform: scale3d(0.9521, 0.9521, 0.9521); transform: scale3d(0.9521, 0.9521, 0.9521); }
+        90% { -webkit-transform: scale3d(0.9694, 0.9694, 0.9694); transform: scale3d(0.9694, 0.9694, 0.9694); }
+        100% { -webkit-transform: scale3d(0.9983, 0.9983 ,0.9983); transform: scale3d(0.9983, 0.9983, 0.9983); }
+
+
+        }
+
+
+      ]]>
+  </style>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-26.000000, -19.000000)" stroke="#D6C819">
+            <g id="sun-and-rays" transform="translate(30.000000, 23.000000)">
+                <ellipse id="sun-oval" stroke-width="15" cx="220.757" cy="229.102" rx="112.714" ry="112.79" class="draw-it"></ellipse>
+                <path d="M209,67 C209,69 211,78 220.5,78 C230,78 232,69 232,67 L232,10 C232,8 229,0 220.5,0 C212,0 209,8 209,10 L209,67 L209,67 Z" id="ray1" class="popIn" stroke-width="8"></path>
+                <path d="M339.508,98.229 C338.58,99.157 333.282,107.282 340,114 C346.718,120.718 354.844,115.42 355.771,114.492 C364.897,105.366 380.41,89.853 382.215,88.047 C383.143,87.119 387.734,78.286 381.723,72.276 C375.712,66.266 366.879,70.856 365.952,71.784 C362.056,75.681 346.003,91.733 339.508,98.229 L339.508,98.229 Z" id="ray2" class="popIn" style="animation-delay: 0.08s;" stroke-width="8"></path>
+                <path d="M379.957,218 C377.565,218 368,220 368,229.5 C368,239 377.565,241 379.957,241 L448.11,241 C450.502,241 460.067,238 460.067,229.5 C460.067,221 450.502,218 448.11,218 L379.957,218 L379.957,218 Z" id="ray3" class="popIn" style="animation-delay: 0.16s;" stroke-width="8"></path>
+                <path d="M348.061,337.665 C347.101,336.705 338.85,331.282 332.132,338 C325.414,344.718 330.837,352.969 331.797,353.928 C341.233,363.365 357.271,379.403 359.138,381.27 C360.097,382.229 368.056,385.945 374.066,379.934 C380.077,373.924 376.361,365.965 375.401,365.006 C371.372,360.977 354.775,344.381 348.061,337.665 L348.061,337.665 Z" id="ray4" class="popIn" style="animation-delay: 0.24s;" stroke-width="8"></path>
+                <path d="M209,453.11 C209,455.502 211,464.067 220.5,464.067 C230,464.067 232,455.502 232,453.11 L232,384.957 C232,382.565 229,373 220.5,373 C212,373 209,382.565 209,384.957 L209,453.11 L209,453.11 Z" id="ray5" class="popIn" style="animation-delay: 0.32s;" stroke-width="8"></path>
+                <path d="M66.346,373.384 C65.17,374.56 59.883,381.676 66.6,388.393 C73.317,395.111 81.433,390.823 82.609,389.648 C94.171,378.086 113.821,358.436 116.109,356.148 C117.284,354.972 120.865,347.149 114.855,341.139 C108.844,335.128 101.022,338.708 99.846,339.884 C94.91,344.82 74.574,365.156 66.346,373.384 L66.346,373.384 Z" id="ray6" class="popIn" style="animation-delay: 0.40s;" stroke-width="8"></path>
+                <path d="M9.749,218 C7.799,218 0,220 0,229.5 C0,239 7.799,241 9.749,241 L65.318,241 C67.268,241 75.067,238 75.067,229.5 C75.067,221 67.268,218 65.318,218 L9.749,218 L9.749,218 Z" id="ray7" class="popIn" style="animation-delay: 0.48s;" stroke-width="8"></path>
+                <path d="M80.809,57.546 C79.574,56.31 71.218,50.782 64.5,57.5 C57.783,64.218 63.31,72.574 64.546,73.809 C76.698,85.961 97.352,106.615 99.757,109.02 C100.992,110.256 109.056,114.076 115.066,108.066 C121.076,102.056 117.256,93.992 116.02,92.757 C110.832,87.568 89.458,66.194 80.809,57.546 L80.809,57.546 Z" id="ray8" class="popIn" style="animation-delay: 0.56s;" stroke-width="8"></path>
+            </g>
+        </g>
+    </g>
+</svg>
