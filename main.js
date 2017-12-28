@@ -8,7 +8,6 @@ $(window).load(function() {
     new Vivus('spigot', {duration: 100, type: 'async', pathTimingFunction: Vivus.EASE_OUT, animTimingFunction: Vivus.EASE}, null);
     setTimeout(spinSpigot, 750); // spin spigot when it's almost finished drawing
     setTimeout(pulseSun, 750); // Pulse sun when it's finished drawing
-
     window.setInterval(animateWater, 15); // ~60 fps
 
 });
@@ -43,7 +42,7 @@ function spinSpigot() {
 }
 
 function toggleWater() {
-    waterOn = !waterOn;
+    spigotOpen = !spigotOpen;
     framesSinceHandleFlipped = 0;
 
 }
@@ -70,16 +69,17 @@ var longestWaterSegment = numberOfWaterLineSegments / 4; // Longest line will be
 var startingVelocity = 20;
 
 var desiredAmountOfWater = 30; // amount for animation to build up to
-var waterFlowFullTimeframe = 25; // constant, tweak as needed
-var framesSinceHandleFlipped = 0; // initial delay
-var waterOn = true;
+var waterFlowFullTimeframe = 15; // Lower number means steeper curve to full water flow, tweak as needed
+var framesSinceHandleFlipped = -60; // initial delay
+var spigotOpen = true;
 
 function waterAtTime(t, maxWater, timeToFull) {
+    var flowDirection = spigotOpen ? -1 : 1; // reflect the function along the y-axis
     // Need to translate function so it maps neatly to a frame t
-    var translationAmount = 6 * (waterOn ? 1 : -0.5); // negative to translate the other way; half so it turns off faster
-    var flowDirection = waterOn ? -1 : 1;
+    var translationAmount = 3 * (spigotOpen ? 1 : -1); // negative to translate the other way if needed
     // sigmoid so water flow acceleration is S-shaped
-    var exactValue = maxWater/(1+Math.pow(Math.E, ((flowDirection/timeToFull)*t) + translationAmount));
+    timeToFull = timeToFull * (spigotOpen ? 1 : 1.5); // Slow down the flow if we've closed it
+    var exactValue = maxWater/(1+Math.pow(Math.E, ((t/timeToFull)*flowDirection) + translationAmount));
     return Math.floor(exactValue);
 }
 
