@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Viewbox is expanded past (0, 0, 469px, 473px) so animations aren't cut off -->
-<svg width="469px" height="473px" viewBox="-50 -50 520 520" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: visible;">
+<svg width="469px" height="473px" viewBox="-50 -50 520 550" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" onmouseover="window.parent.sunMouseOver()" onmouseout="window.parent.sunMouseOut()">
     <!-- Generator: Sketch 3.8.3 (29802) - http://www.bohemiancoding.com/sketch -->
     <style type="text/css" >
       <![CDATA[

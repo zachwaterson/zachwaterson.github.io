@@ -1,16 +1,47 @@
+// style constants (must match SVG)
+var WATER_COLOR = "#4A90E2";
+var SUN_COLOR = "#D6C819";
+var HEADLINE_COLOR = "#ffffff";
+
+// ----------------- Main function --------------------
+
 $(window).load(function() {
 
     // Bind window resize to redrawing flow of water
     $(window).resize(resizeWaterFlow);
     resizeWaterFlow();
 
-    // Animate spigot
+    // Animate spigot & sun
     new Vivus('spigot', {duration: 100, type: 'async', pathTimingFunction: Vivus.EASE_OUT, animTimingFunction: Vivus.EASE}, null);
     setTimeout(spinSpigot, 750); // spin spigot when it's almost finished drawing
     setTimeout(pulseSun, 750); // Pulse sun when it's finished drawing
     window.setInterval(animateWater, 15); // ~60 fps
 
 });
+
+// ----------------- Event handler functions (in SVG) --------------------
+
+function spigotClicked() {
+    spinSpigot();
+    toggleWater();
+}
+
+function spigotMouseOver() {;
+    console.log("mouseover!")
+    $("#headline-water").css("color", WATER_COLOR);
+}
+
+function spigotMouseOut() {
+    $("#headline-water").css("color", HEADLINE_COLOR);
+}
+
+function sunMouseOver() {
+    $("#headline-son").css("color", SUN_COLOR);
+}
+
+function sunMouseOut() {
+    $("#headline-son").css("color", HEADLINE_COLOR);
+}
 
 // ----------------- Sun functions --------------------
 
@@ -26,11 +57,6 @@ function pulseSun() {
 
 
 // ----------------- Water functions ------------------
-
-function spigotClicked() {
-    spinSpigot();
-    toggleWater();
-}
 
 function spinSpigot() {
     var handle_path = document.getElementById("spigot").contentDocument.getElementById("spigot-handle");
@@ -91,7 +117,7 @@ function WaterLine(x, y, column, lengthInSegments, width, velocity) {
     this.width = width;
     this.endRadius = this.width
     this.velocity = velocity;
-    this.color = "#4A90E2";
+    this.color = WATER_COLOR;
     this.lengthInPoints = function() {
         var lengthInPoints = (document.getElementById("water-canvas").height / numberOfWaterLineSegments) * this.lengthInSegments; // cut waterfall height into length of one "segment" then multiply by length in segments to get point length
         return lengthInPoints

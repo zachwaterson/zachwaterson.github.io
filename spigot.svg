@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg id="spigot-svg" width="1023px" height="687px" viewBox="0 0 341 229" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" onclick="window.parent.spigotClicked()" style="cursor: pointer;">
+<svg id="spigot-svg" width="1023px" height="687px" viewBox="0 0 341 229" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" onclick="window.parent.spigotClicked()" onmouseover="window.parent.spigotMouseOver()" onmouseout="window.parent.spigotMouseOut()" style="cursor: pointer;">
     <!-- Generator: Sketch 3.8.3 (29802) - http://www.bohemiancoding.com/sketch -->
     <style type="text/css" >
       <![CDATA[
