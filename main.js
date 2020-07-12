@@ -5,7 +5,7 @@ var HEADLINE_COLOR = "#ffffff";
 
 // ----------------- Main function --------------------
 
-$(window).load(function() {
+$(window).on('load', function () {
 
     // Bind window resize to redrawing flow of water
     $(window).resize(resizeWaterFlow);
