@@ -27,7 +27,6 @@ function spigotClicked() {
 }
 
 function spigotMouseOver() {;
-    console.log("mouseover!")
     $("#headline-water").css("color", WATER_COLOR);
 }
 
